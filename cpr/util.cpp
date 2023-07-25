@@ -176,7 +176,7 @@ void secureStringClear(std::string& s) {
     }
 
 #if defined(__linux__) || defined(__unix__)
-    explicit_bzero(&s.front(), s.length());
+    bzero(&s.front(), s.length());
 #elif defined(_WIN32)
     SecureZeroMemory(&s.front(), s.length());
 #elif defined(__STDC_LIB_EXT1__)
